@@ -198,7 +198,7 @@ public class Status extends InstrumentedPreferenceActivity {
 
         updateConnectivity();
 
-        String serial = Build.SERIAL;
+        String serial = SystemProperties.get("ril.serialnumber");
         if (serial != null && !serial.equals("")) {
             setSummaryText(KEY_SERIAL_NUMBER, serial);
         } else {
