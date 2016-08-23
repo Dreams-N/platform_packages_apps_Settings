@@ -198,13 +198,8 @@ public class Status extends InstrumentedPreferenceActivity {
 
         updateConnectivity();
 
-	if (SystemProperties.get("ro.product.board").equals("capri")) {
-	    String serial = SystemProperties.get("ril.serialnumber");
-	}
-	else if (!SystemProperties.get("ro.product.board").equals("capri")) {
-            String serial = Build.SERIAL;
-	}
-        else if (serial != null && !serial.equals("")) {
+        String serial = SystemProperties.get("ril.serialnumber");
+        if (serial != null && !serial.equals("")) {
             setSummaryText(KEY_SERIAL_NUMBER, serial);
         } else {
             removePreferenceFromScreen(KEY_SERIAL_NUMBER);
